@@ -2,7 +2,8 @@ const mix = require('laravel-mix');
 
 require('laravel-mix-purgecss');
 require('laravel-mix-versionhash');
-const CompressionPlugin = require('compression-webpack-plugin');
+const tailwindcss          = require('tailwindcss');
+const CompressionPlugin    = require('compression-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function isProduction() {
@@ -39,6 +40,8 @@ mix.webpackConfig({
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .options({
+      processCssUrls: false,
+      postCss: [ tailwindcss('./tailwind.js') ],
       uglify: {
           uglifyOptions: {
               compress: {
