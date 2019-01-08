@@ -1,10 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "fhusquinet/laravel-tailwind-vuejs-boilerplate",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Boilerplate to quickly wip up a new Laravel with VueJS and Tailwind. Assets are gzipped and cleaned up using PostCSS.",
     "keywords": [
-        "framework",
-        "laravel"
+        "boilerplate",
+        "laravel",
+        "tailwind",
+        "vuejs"
     ],
     "license": "MIT",
     "require": {
