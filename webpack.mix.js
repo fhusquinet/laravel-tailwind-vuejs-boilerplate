@@ -10,13 +10,7 @@ function isProduction() {
 	return process.env.NODE_ENV == 'production';
 }
 
-// mix.setPublicPath('public');
 mix.webpackConfig({
-    output: {
-      publicPath: '/',
-      // it’s useful to have static filenames in development mode and hash-based in production
-		chunkFilename: isProduction() ? 'js/[name].[md5:contenthash:hex:20].js' : 'js/[name].chunk.js'
-    },
     plugins: [
         new CompressionPlugin()
     ],
@@ -38,6 +32,10 @@ mix.webpackConfig({
  */
 
 mix.js('resources/js/app.js', 'public/js')
+   .extract([
+        'vue',
+        'axios'
+    ])
    .sass('resources/sass/app.scss', 'public/css')
    .options({
       processCssUrls: false,
